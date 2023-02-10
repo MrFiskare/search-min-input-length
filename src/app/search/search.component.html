@@ -1,0 +1,22 @@
+FormControl search input: 
+<div>
+<input [formControl]="textField" (ngModelChange)="modelChanged($event)"> 
+</div>
+
+<div>
+<label *ngIf="textField.invalid" [ngClass] = "'error'"> min. 3 char</label>
+</div>
+
+<br/><br/>
+<b>Previous search state: </b>{{ ePreviousSearch }}
+
+<br/><br/>
+<b>Current input search state: </b>{{ eCurrentSearch }}
+
+<br/><br/>
+<div *ngIf="eBackendCall === 'Was needed' || eBackendCall === 'Was needed (first time)'">
+  <b>Backend call: </b><font color="green">{{ eBackendCall }}</font>
+</div>
+<div *ngIf="eBackendCall === 'Was not needed'">
+  <b>Backend call: </b><font color="red">{{ eBackendCall }}</font>
+</div>
